@@ -1,0 +1,13 @@
+Audio
+    *titulo
+    *duracao
+    *total de reproduções
+    *curtidas
+    *classificacao
+
+    -curtir
+    -reproduzir
+
+Musica extends Audio
+
+Podcast extends Audio
