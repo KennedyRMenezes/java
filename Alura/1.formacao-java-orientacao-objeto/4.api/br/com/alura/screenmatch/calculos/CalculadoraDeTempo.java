@@ -18,7 +18,7 @@ public class CalculadoraDeTempo {
     // }
 
     /* POLIMORFISMO
-       Aqui o metodo busca .getDuracaoEmMinutos da subclasse especifica,
+       Aqui o metodo busca .getDuracaoEmMinutos da subclasse especifica
        passada como argumento de inclui.
        Se Serie calcula como Serie.
        Se Filme calcula como Filme.
