@@ -1,6 +1,7 @@
 package phrases.controller;
 
 import java.util.Scanner;
+
 import phrases.model.Phrase;
 
 public class ConsolePhraseInput {
