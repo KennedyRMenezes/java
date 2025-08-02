@@ -33,16 +33,26 @@ public class PhrasesProject {
 
                 // System.out.println("Origem e Author da Frase anterior: " + origin + ", " + author);
 
-                //TODO: Lógica de Inserção do BD (primeiro origem, autor, usuario e depois a frase)
+                // TODO: Lógica de Inserção do BD (primeiro origem, autor, usuario e depois a frase)
 
                 // ********* CRIAÇÃO DE INSTANCIA NO BANCO DE DADOS ***********
+
+                // USUARIO
                 Properties config = ConfigLoader.loadProperties("config.phrases.properties");
-
                 UserDAO userDAO = new UserDAO(config);
-
                 userDAO.insertUser(user);
-
                 System.out.println("Usuário inserido com sucesso!");
+
+
+                // ORIGEM
+
+
+                // AUTOR
+
+
+                // CONTROLE FRASES
+
+
 
                 scan.close();
 
