@@ -32,21 +32,50 @@ public class PayrollSystemTest{
         System.out.println("Employees processed individually:");
 
         System.out.printf("%n%s%n%s: $%,.2f%n%n",
-            salariedEmployee, "earned", salariedEmployee.earnings());
+            salEmp, "earned", salEmp.earnings());
         
         System.out.printf("%s%n%s: $%,.2f%n%n",
-            hourlyEmployee, "earned", hourlyEmployee.earnings());
+            hourEmp, "earned", hourEmp.earnings());
         
         System.out.printf("%s%n%s: $%,.2f%n%n",
-            commissionEmployee, "earned", commissionEmployee.earnings());
+            comEmp, "earned", comEmp.earnings());
         
         System.out.printf("%s%n%s: $%,.2f%n%n",
-            basePlusCommissionEmployee,
-            "earned", basePlusCommissionEmployee.earnings());
+            baseEmp,
+            "earned", baseEmp.earnings());
 
         Employee[] employees = new Employee[4];
 
+        employees[0] = salEmp;
+        employees[1] = hourEmp;
+        employees[2] = comEmp;
+        employees[3] = baseEmp;
+
+        System.out.printf("Employees processed polymorphically:%n%n");
+
+        for (Employee currentEmployee : employees){
+
+            System.out.println(currentEmployee);
+
+            if (currentEmployee instanceof BasePlusCommissionEmployee) {
+                
+                // downcast da referência de Employee para
+                // referência a BasePlusCommissionEmployee
+                BasePlusCommissionEmployee employee = (BasePlusCommissionEmployee) currentEmployee;
+
+                employee.setBaseSalary(1.10 * employee.getBaseSalary());
+
+                System.out.printf(
+                            "new base salary with 10%% increase is: $%,.2f%n",
+                            employee.getBaseSalary());
+            }
+
+            System.out.printf("earned $%,.2f%n%n", currentEmployee.earnings());
+            
+        }
+
+        for (int j = 0; j < employees.length; j++){
+            System.out.printf("Employee %d is a %s%n", j, employees[j].getClass().getName());
+        }
     }
-
-
 }

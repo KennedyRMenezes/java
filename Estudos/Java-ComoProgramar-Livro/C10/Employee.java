@@ -7,7 +7,7 @@ public abstract class Employee{
     public Employee(String firstName, String lastName, String socialSecurityNumber){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.socialSecurityNumber = socialSecurityNumber
+        this.socialSecurityNumber = socialSecurityNumber;
     }
 
     public String getFirstName(){
