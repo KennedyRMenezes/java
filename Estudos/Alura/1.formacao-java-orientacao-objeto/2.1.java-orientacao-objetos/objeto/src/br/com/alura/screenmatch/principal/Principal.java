@@ -1,16 +1,18 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 
+import java.util.ArrayList;
+
 public class Principal {
 
     public static void main(String[] args) {
 
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O poderoso chefão");
-        meuFilme.setAnoDeLancamento(1970);
+        Filme meuFilme = new Filme("O poderoso chefão", 1970);
         meuFilme.setDuracaoEmMinutos(180);
 
         System.out.println(meuFilme); //br.com.alura.screenmatch.modelos.Filme@1b28cdfa
@@ -23,9 +25,7 @@ public class Principal {
 
         System.out.println();
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2000);
+        Serie lost = new Serie("Lost", 2000);
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
@@ -34,9 +34,7 @@ public class Principal {
 
         System.out.println();
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar");
-        outroFilme.setAnoDeLancamento(2023);
+        Filme outroFilme = new Filme("Avatar", 2023);
         outroFilme.setDuracaoEmMinutos(200);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
@@ -56,6 +54,24 @@ public class Principal {
         ep.setSerie(lost);
         ep.setTotalVisualizacoes(300);
         filtro.filtra(ep);
+
+        // Usando listas
+        var filmeDoKennedy = new Filme("La La Land", 2016);
+        filmeDoKennedy.setDuracaoEmMinutos(200);
+        filmeDoKennedy.avalia(10);
+
+        ArrayList <Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+        listaDeFilmes.add(filmeDoKennedy);
+
+        System.out.println("\nTrabalhando com listas\n");
+
+        System.out.println("Tamanho da lista " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+
+
 
     }
 }
