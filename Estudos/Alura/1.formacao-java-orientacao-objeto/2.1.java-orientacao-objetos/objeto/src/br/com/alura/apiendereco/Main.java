@@ -1,14 +1,5 @@
 package br.com.alura.apiendereco;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.Scanner;
 
 public class Main {
@@ -21,13 +12,18 @@ public class Main {
 
         ConsultaCEP consulta = new ConsultaCEP();
 
-        Endereco endereco = new Endereco(consulta.buscaEndereco(cep));
-        System.out.println(endereco);
+        try {
+            Endereco endereco = new Endereco(consulta.buscaEndereco(cep));
+            System.out.println(endereco);
 
+            GeradorDeArquivo gerador = new GeradorDeArquivo();
 
-        FileWriter escrita = new FileWriter("endereco.json");
-        escrita.write(new Gson().toJson(endereco));
-        escrita.close();
+            gerador.salvaJson(endereco);
+
+        } catch (RuntimeException e){
+            System.out.println(e.getMessage());
+            System.out.println("Finalizando a aplicação");
+        }
     }
 
 }

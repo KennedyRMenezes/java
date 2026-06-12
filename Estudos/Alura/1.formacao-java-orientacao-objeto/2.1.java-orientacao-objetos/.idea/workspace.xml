@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fa61c7c1-6eb6-4566-942c-037da4733adf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/objeto/src/br/com/alura/apiendereco/GeradorDeArquivo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2.formacao-java-web/1.2.lambda-stream-spring/screenmatch/src/main/java/br/com/alura/screenmatch/service/ConsumoAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objeto/endereco.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/objeto/src/br/com/alura/apiendereco/ConsultaCEP.java" beforeDir="false" afterPath="$PROJECT_DIR$/objeto/src/br/com/alura/apiendereco/ConsultaCEP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objeto/src/br/com/alura/apiendereco/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/objeto/src/br/com/alura/apiendereco/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/java/br/com/alura/screenmatch/ScreenmatchApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/java/br/com/alura/screenmatch/model/DadosEpisodio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/java/br/com/alura/screenmatch/model/DadosSerie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/java/br/com/alura/screenmatch/model/DadosTemporada.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/java/br/com/alura/screenmatch/model/Episodio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/java/br/com/alura/screenmatch/principal/Principal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/java/br/com/alura/screenmatch/service/ConsumoAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/java/br/com/alura/screenmatch/service/ConverteDados.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/java/br/com/alura/screenmatch/service/IConverteDados.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/screenmatch_/src/test/java/br/com/alura/screenmatch/ScreenmatchApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/main/java/br/com/projeto/tabela_fipe/TabelaFipeApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/main/java/br/com/projeto/tabela_fipe/model/Dados.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/main/java/br/com/projeto/tabela_fipe/model/Modelos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/main/java/br/com/projeto/tabela_fipe/model/Veiculo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/main/java/br/com/projeto/tabela_fipe/principal/PrincipalFIPE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/main/java/br/com/projeto/tabela_fipe/service/ConsumoAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/main/java/br/com/projeto/tabela_fipe/service/DataConversor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/main/java/br/com/projeto/tabela_fipe/service/IDataConversor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2.formacao-java-web/1.lambdas, streams e Spring Framework/tabela-fipe/tabela-fipe/src/test/java/br/com/projeto/tabela_fipe/TabelaFipeApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3F2VwjLziuKWh0NAdfCmg1Lh6Up" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/menez/KR/Programacao/00.Estudos/Java/java/Estudos/Alura/1.formacao-java-orientacao-objeto/2.1.java-orientacao-objetos"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa61c7c1-6eb6-4566-942c-037da4733adf" name="Changes" comment="" />
+      <created>1781273392403</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1781273392403</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

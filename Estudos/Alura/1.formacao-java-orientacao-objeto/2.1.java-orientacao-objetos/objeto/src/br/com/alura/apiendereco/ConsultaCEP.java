@@ -1,9 +1,7 @@
 package br.com.alura.apiendereco;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -15,24 +13,20 @@ public class ConsultaCEP {
 
         String url = "https://viacep.com.br/ws/" + cep + "/json/";
 
-        HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .build();
 
-        HttpResponse<String> response = null;
-
         try {
 
-            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = HttpClient
+                    .newHttpClient()
+                    .send(request, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(), EnderecoAPI.class);
 
-        } catch (IOException | InterruptedException e){
+        } catch (Exception e){
             throw new RuntimeException("Não foi possível buscar endereço com esse CEP");
         }
-
-
-
 
     }
 
