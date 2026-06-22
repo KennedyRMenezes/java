@@ -7,6 +7,7 @@ import br.com.alura.screenmatch.model.Episodio;
 import br.com.alura.screenmatch.service.ConsumoAPI;
 import br.com.alura.screenmatch.service.ConverteDados;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -46,7 +47,7 @@ public class Principal {
 
 //        listaEpisodiosAntesDaClasseEpisodio(top);
 
-//        listaEpisodiosComClasseEpisodio();
+        listaEpisodiosComClasseEpisodio(false);
 
 //        streamAndPeek(top);
 
@@ -54,14 +55,37 @@ public class Principal {
 
 //        buscaPorTrechoEpisodio();
 
-        utilizandoMap(); // 4.3, 2:36
+        utilizandoMap();
+
+        statistics();
 
 
     }
 
+    public void statistics(){
+
+        System.out.println("\nEstatísticas de avaiação");
+        DoubleSummaryStatistics est = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0.0)
+                .collect(Collectors.summarizingDouble(Episodio::getAvaliacao));
+        System.out.println("Media: " + est.getAverage());
+        System.out.println("Melhor episódio: " + est.getMax());
+        System.out.println("Pior episódio: " + est.getMin());
+        System.out.println("Quantodade: " + est.getCount());
+
+    }
+
+
     public void utilizandoMap(){
 
-        
+        System.out.println("\nMédia de avaliação das temporadas");
+        DecimalFormat df = new DecimalFormat("0.00");
+        Map<Integer, Double> avaliacoesPorTemporada = this.episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0.0)
+                .collect(Collectors.groupingBy(Episodio::getTemporada,
+                        Collectors.averagingDouble(Episodio::getAvaliacao)));
+        avaliacoesPorTemporada.forEach((temp, media) ->
+                System.out.println(temp + ": " + df.format(media)));
 
     }
 
@@ -69,7 +93,7 @@ public class Principal {
 
         System.out.print("Digite o trecho do nome de um episodio para ser buscado: ");
         var trechoTitulo = leitura.nextLine();
-        Optional<Episodio> episodioBuscado = episodios.stream()
+        Optional<Episodio> episodioBuscado = this.episodios.stream()
                 .filter(e -> e.getTitulo().toUpperCase().contains(trechoTitulo.toUpperCase()))
                 .findFirst();
         if(episodioBuscado.isPresent()){
@@ -123,15 +147,17 @@ public class Principal {
     }
 
 
-    public void listaEpisodiosComClasseEpisodio(){
+    public void listaEpisodiosComClasseEpisodio(Boolean lista){
 
         this.episodios = temporadas.stream()
                 .flatMap(t -> t.episodios().stream()
                         .map(d -> new Episodio(t.numero(), d))
                 ).collect(Collectors.toList());
 
-        episodios.forEach(System.out::println);
-        System.out.println();
+        if (lista){
+            episodios.forEach(System.out::println);
+            System.out.println();
+        }
 
     }
 
