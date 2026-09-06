@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minhas frases</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                eco frases
+            </div>
+
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">🗣️ Início</a></li>
+                    <li><a href="perfil.html" class="nav-link">👤 Perfil</a></li>
+                    <li><a href="minhas-frases.html" class="nav-link">💬 Minhas frases</a></li>
+                    <li><a href="cadastrar-frase.html" class="nav-link">➕ Cadastrar Frases</a></li>
+                </ul>
+            </nav>
+
+        </aside>
+
+
+        <main class="main-content">
+
+            <h1>Minhas frases</h1>
+
+            <p>
+                Aqui estão as frases que você adicionou.
+            </p>
+
+
+            <div id="phrases-container">
+
+                <!-- Exemplo de card -->
+
+                <div class="card-phrase">
+
+                    <div class="phrase-text">
+                        "A vida é aquilo que acontece enquanto você está ocupado fazendo outros planos."
+                    </div>
+
+                    <div class="phrase-author">
+                        John Lennon
+                    </div>
+
+                    <div class="phrase-origin">
+                        Beautiful Boy
+                    </div>
+
+
+                    <div class="phrase-actions">
+
+                        <span class="phrase-label">
+                            Próxima revisão:
+                        </span>
+
+                        <div class="interval-buttons">
+
+                            <button class="btn-interval">
+                                3 dias
+                            </button>
+
+                            <button class="btn-interval">
+                                5 dias
+                            </button>
+
+                            <button class="btn-interval">
+                                15 dias
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="alert-banner">
+                    Para salvar suas frases e poder relembrá-las, realize o login no sistema.
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/minhas-frases.js"></script>
+
+    <div id="delete-modal" class="delete-modal">
+
+    <div class="delete-modal-content">
+
+        <h2>Excluir frase?</h2>
+
+        <p>
+            Tem certeza que deseja excluir esta frase?
+            Essa ação não poderá ser desfeita.
+        </p>
+
+        <div class="delete-modal-actions">
+
+            <button
+                id="cancel-delete"
+                class="btn-cancel-delete">
+                Cancelar
+            </button>
+
+            <button
+                id="confirm-delete"
+                class="btn-confirm-delete">
+                Excluir
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

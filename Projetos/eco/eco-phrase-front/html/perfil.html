@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eco - conta</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">eco frases</div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">🗣️ Início</a></li>
+                    <li><a href="login.html" class="nav-link">🔑 Login</a></li>
+                    <li><a href="perfil.html" class="nav-link active">👤 Seu Perfil</a></li>
+                    <li><a href="minhas-frases.html" class="nav-link">💬 Minhas frases</a></li>
+                    <li><a href="cadastrar-frase.html" class="nav-link">➕ Cadastrar Frases</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h1>Meu Perfil</h1>
+
+            <div class="card">
+                <div class="profile-header">
+                    <div class="profile-avatar" id="userInitial">U</div>
+                    <div>
+                        <h2 id="userName" style="margin: 0;">Carregando...</h2>
+                        <p id="userEmail" style="margin: 0;">--</p>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid var(--border-color); padding-top: 20px;">
+                    <button id="logoutBtn" class="btn-primary" style="background-color: #ff4444; width: auto;">Sair</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/perfil.js"></script>
+</body>
+</html>

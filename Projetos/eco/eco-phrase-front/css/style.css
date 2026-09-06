@@ -1,0 +1,504 @@
+/* css/style.css */
+
+:root {
+    --bg-dark: #121217;
+    --sidebar-bg: #1a1a21;
+    --sidebar-hover: #262633;
+    --sidebar-active: #323245;
+    --card-bg: #1e1e28;
+    --text-primary: #f0f0f5;
+    --text-secondary: #a0a0b0;
+    --accent-purple: #9146ff;
+    --accent-purple-hover: #772ce8;
+    --banner-bg: #323318;
+    --banner-border: #4d4f20;
+    --banner-text: #e1e378;
+    --border-color: #2e2e3d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Layout Principal */
+.app-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Menu Lateral */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 12px;
+    color: var(--text-primary);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+    background-color: var(--sidebar-hover);
+    color: var(--text-primary);
+}
+
+.nav-link.active {
+    background-color: var(--sidebar-active);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Área de Conteúdo */
+.main-content {
+    margin-left: 250px;
+    flex: 1;
+    padding: 40px;
+    max-width: 1000px;
+}
+
+/* Elementos de Interface */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* Alerta estilo Banner da Imagem */
+.alert-banner {
+    background-color: var(--banner-bg);
+    border: 1px solid var(--banner-border);
+    color: var(--banner-text);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+/* Cards e Formulários */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.card-login {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+input {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 12px 16px;
+    border-radius: 6px;
+    color: var(--text-primary);
+    outline: none;
+    font-size: 1rem;
+}
+
+input:focus {
+    border-color: var(--accent-purple);
+}
+
+.btn-primary {
+    background-color: var(--accent-purple);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+    width: 85%;
+    
+    /* Regras adicionadas para centralizar o logo e o texto */
+    display: inline-flex;
+    align-items: center;     /* Centraliza verticalmente */
+    justify-content: center;/* Centraliza horizontalmente */
+    gap: 10px;               /* Espaço entre a imagem e o texto */
+    text-decoration: none;   /* Garante que o link não fique sublinhado */
+}
+
+.btn-primary-login {
+    background-color: var(--card-bg);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+    width: 90%;
+    
+    /* Regras adicionadas para centralizar o logo e o texto */
+    display: inline-flex;
+    align-items: center;     /* Centraliza verticalmente */
+    justify-content: center;/* Centraliza horizontalmente */
+    gap: 10px;               /* Espaço entre a imagem e o texto */
+    text-decoration: none;   /* Garante que o link não fique sublinhado */
+}
+
+
+.btn-primary:hover {
+    background-color: var(--accent-purple-hover);
+}
+
+.btn-primary-login:hover {
+    background-color: var(--sidebar-active);
+}
+
+/*********************************** Perfil ***********************************/
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--accent-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+/*********************************** Frase Card ***********************************/
+
+
+.card-phrase {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.phrase-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.phrase-author {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.phrase-origin {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.phrase-actions {
+    border-top: 1px solid var(--border-color);
+    padding-top: 18px;
+}
+
+.phrase-label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.interval-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-interval {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-interval:hover {
+    background-color: var(--sidebar-active);
+    border-color: var(--accent-purple);
+}
+
+
+/**************************** Formulário ****************************/
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+
+    padding: 12px 14px;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+
+    outline: none;
+
+    transition: border-color 0.2s;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-purple);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.btn-submit {
+    margin-top: 5px;
+
+    background-color: var(--sidebar-active);
+    border-color: var(--accent-purple);
+
+    padding: 11px 20px;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-purple);
+}
+
+
+/**************************** LIXEIRA ****************************/
+
+.phrase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.phrase-header .phrase-text {
+    flex: 1;
+}
+
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+/**************************** POP-UP ****************************/
+
+.delete-modal {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+.delete-modal.active {
+    display: flex;
+}
+
+.delete-modal-content {
+    background-color: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 12px;
+
+    padding: 28px;
+
+    width: 90%;
+    max-width: 420px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.delete-modal-content h2 {
+    margin-top: 0;
+
+    color: var(--text-primary);
+}
+
+.delete-modal-content p {
+    color: var(--text-secondary);
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+.delete-modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+.btn-cancel-delete,
+.btn-confirm-delete {
+    padding: 9px 18px;
+
+    border-radius: 6px;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.btn-cancel-delete {
+    background-color: var(--bg-dark);
+
+    color: var(--text-primary);
+
+    border: 1px solid var(--border-color);
+}
+
+.btn-confirm-delete {
+    background-color: #dc3545;
+
+    color: white;
+
+    border: 1px solid #dc3545;
+}
+
+.btn-confirm-delete:hover {
+    background-color: #bb2d3b;
+
+    border-color: #bb2d3b;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar frase</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+            eco frases
+        </div>
+
+        <nav>
+            <ul class="nav-list">
+
+                <li>
+                    <a href="index.html" class="nav-link">
+                        🗣️ Início
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perfil.html" class="nav-link">
+                        👤 Perfil
+                    </a>
+                </li>
+
+                <li>
+                    <a href="minhas-frases.html" class="nav-link">
+                        💬 Minhas frases
+                    </a>
+                </li>
+
+                <li>
+                    <a href="cadastrar-frase.html" class="nav-link">
+                        ➕ Cadastrar Frase
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <h1>Cadastrar frase</h1>
+
+        <p>
+            Adicione uma frase para poder relembrá-la posteriormente.
+        </p>
+
+
+        <div class="card-phrase">
+
+            <form id="phrase-form">
+
+                <div class="form-group">
+
+                    <label for="text">
+                        Frase
+                    </label>
+
+                    <textarea
+                        id="text"
+                        name="text"
+                        rows="5"
+                        placeholder="Digite a frase..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="author">
+                        Autor
+                    </label>
+
+                    <input
+                        type="text"
+                        id="author"
+                        name="author"
+                        placeholder="Nome do autor"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="origin">
+                        Origem
+                    </label>
+
+                    <input
+                        type="text"
+                        id="origin"
+                        name="origin"
+                        placeholder="Livro, filme, música etc. (opcional)"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-interval btn-submit"
+                >
+                    Cadastrar frase
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div
+            id="success-message"
+            class="alert-banner"
+            style="display: none;"
+        >
+            Frase cadastrada com sucesso!
+        </div>
+
+
+        <div
+            id="error-message"
+            class="alert-banner"
+            style="display: none;"
+        >
+            Não foi possível cadastrar a frase.
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="../js/config.js"></script>
+<script src="../js/cadastrar-frase.js"></script>
+
+</body>
+
+</html>
