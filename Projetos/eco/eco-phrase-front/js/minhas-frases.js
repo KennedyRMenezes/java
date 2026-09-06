@@ -247,6 +247,7 @@ function renderPhrases(frases) {
     });
 
     addDeleteListeners();
+    addIntervalListeners();
 }
 
 
@@ -277,4 +278,77 @@ function showDeleteConfirmation(phraseId) {
         document.getElementById('delete-modal');
 
     modal.classList.add('active');
+}
+
+function addIntervalListeners() {
+
+    const intervalButtons =
+        document.querySelectorAll('.btn-interval');
+
+    intervalButtons.forEach(button => {
+
+        button.addEventListener('click', async function () {
+
+            const phraseId = this.dataset.id;
+            const days = this.dataset.days;
+
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            try {
+
+                const response = await fetch(
+                    `${API_CONFIG.BASE_URL}/frase/${phraseId}/revisao`,
+                    {
+                        method: 'PUT',
+
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        },
+
+                        body: JSON.stringify({
+                            days: Number(days)
+                        })
+                    }
+                );
+
+                console.log('STATUS REVISÃO:', response.status);
+
+                if (response.status === 401) {
+
+                    localStorage.removeItem('authToken');
+
+                    window.location.href = 'login.html';
+
+                    return;
+                }
+
+                if (!response.ok) {
+                    throw new Error(
+                        `Erro HTTP: ${response.status}`
+                    );
+                }
+
+                console.log(
+                    `Revisão definida para ${days} dias.`
+                );
+
+            } catch (error) {
+
+                console.error(
+                    'Erro ao definir revisão:',
+                    error
+                );
+
+                alert(
+                    'Não foi possível definir a próxima revisão.'
+                );
+            }
+        });
+    });
 }
