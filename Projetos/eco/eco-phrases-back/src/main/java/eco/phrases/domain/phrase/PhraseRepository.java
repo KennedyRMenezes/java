@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,4 +21,9 @@ public interface PhraseRepository extends JpaRepository<Phrase, Long>{
     @Transactional
     @Query("DELETE FROM Phrases p WHERE p.id = :idPhrase AND p.user.id = :idUser")
     int deletePhrase(Long idPhrase, Long idUser);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Phrases p SET p.nextSeen = :nextSeen WHERE p.id = :phraseId AND p.user.id = :userId")
+    int updateNextSeen(Long phraseId, LocalDateTime nextSeen, Long userId);
 }

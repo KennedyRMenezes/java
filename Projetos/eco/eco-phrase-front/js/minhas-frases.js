@@ -211,33 +211,46 @@ function renderPhrases(frases) {
 
             <div class="phrase-actions">
 
-                <span class="phrase-label">
-                    Próxima revisão:
-                </span>
+                <div class="review-left">
 
-                <div class="interval-buttons">
+                    <span class="phrase-label">
+                        Rever em:
+                    </span>
 
-                    <button
-                        class="btn-interval"
-                        data-id="${frase.id}"
-                        data-days="3">
-                        3 dias
-                    </button>
+                    <div class="interval-buttons">
 
-                    <button
-                        class="btn-interval"
-                        data-id="${frase.id}"
-                        data-days="5">
-                        5 dias
-                    </button>
+                        <button
+                            class="btn-interval"
+                            data-id="${frase.id}"
+                            data-days="3">
+                            3 dias
+                        </button>
 
-                    <button
-                        class="btn-interval"
-                        data-id="${frase.id}"
-                        data-days="15">
-                        15 dias
-                    </button>
+                        <button
+                            class="btn-interval"
+                            data-id="${frase.id}"
+                            data-days="5">
+                            5 dias
+                        </button>
 
+                        <button
+                            class="btn-interval"
+                            data-id="${frase.id}"
+                            data-days="7">
+                            7 dias
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="next-review-date" data-id="${frase.id}">
+                    <span class="next-label">
+                        Próxima revisão:
+                    </span>
+                    <span class="next-review-value">
+                        ${formatarData(frase.nextSeen)}
+                    </span>
                 </div>
 
             </div>
@@ -302,7 +315,7 @@ function addIntervalListeners() {
             try {
 
                 const response = await fetch(
-                    `${API_CONFIG.BASE_URL}/frase/${phraseId}/revisao`,
+                    `${API_CONFIG.BASE_URL}/frase/revisao`,
                     {
                         method: 'PUT',
 
@@ -312,6 +325,7 @@ function addIntervalListeners() {
                         },
 
                         body: JSON.stringify({
+                            id: Number(phraseId),
                             days: Number(days)
                         })
                     }
@@ -334,6 +348,29 @@ function addIntervalListeners() {
                     );
                 }
 
+                const nextReviewDate =
+                    document.querySelector(
+                        `.next-review-date[data-id="${phraseId}"]`
+                    );
+
+                if (nextReviewDate) {
+
+                    const data = new Date();
+
+                    data.setDate(
+                        data.getDate() + Number(days)
+                    );
+
+                    const dataFormatada =
+                        `${String(data.getDate()).padStart(2, '0')}/` +
+                        `${String(data.getMonth() + 1).padStart(2, '0')}/` +
+                        `${data.getFullYear()}`;
+
+                    nextReviewDate.querySelector(
+                        '.next-review-value'
+                    ).textContent = dataFormatada;
+                }
+
                 console.log(
                     `Revisão definida para ${days} dias.`
                 );
@@ -351,4 +388,17 @@ function addIntervalListeners() {
             }
         });
     });
+}
+
+function formatarData(data) {
+
+    if (!data) {
+        return 'Não definida';
+    }
+
+    const [dataParte] = data.split('T');
+
+    const [ano, mes, dia] = dataParte.split('-');
+
+    return `${dia}/${mes}/${ano}`;
 }

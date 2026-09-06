@@ -270,15 +270,15 @@ input:focus {
 }
 
 .phrase-actions {
-    border-top: 1px solid var(--border-color);
-    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .phrase-label {
     display: block;
     color: var(--text-secondary);
     font-size: 0.85rem;
-    margin-bottom: 10px;
 }
 
 .interval-buttons {
@@ -301,6 +301,32 @@ input:focus {
 .btn-interval:hover {
     background-color: var(--sidebar-active);
     border-color: var(--accent-purple);
+}
+
+.review-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.next-review-date {
+    padding: 10px 16px;
+    border: 1px solid rgba(230, 126, 34, 0.35);
+    border-radius: 6px;
+
+    color: #e0a15a;
+    background-color: rgba(230, 126, 34, 0.08);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.next-label {
+    display: block;
+    color: #e0a15a;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    font-size: 10px;
 }
 
 

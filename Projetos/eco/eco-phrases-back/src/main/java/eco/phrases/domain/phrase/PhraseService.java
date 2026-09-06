@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 public class PhraseService {
 
     @Autowired
-    private PhraseRepository repository;
+    private PhraseRepository phraseRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -25,14 +25,14 @@ public class PhraseService {
 
         var user = userRepository.findByEmail(email);
 
-        Phrase savedPhrase = repository.save(new Phrase(null, dados.text(), dados.author(), dados.origin(), nextSeen(), user));
+        Phrase savedPhrase = phraseRepository.save(new Phrase(null, dados.text(), dados.author(), dados.origin(), nextSeen(3), user));
 
         return savedPhrase;
 
     }
 
-    public LocalDateTime nextSeen(){
-        return LocalDateTime.now().plusDays(3);
+    public LocalDateTime nextSeen(int interval){
+        return LocalDateTime.now().plusDays(interval);
     }
 
 
@@ -40,9 +40,24 @@ public class PhraseService {
 
         var email = authentication.getName();
         var user = userRepository.getUserByEmail(email);
-        int idDeleted = repository.deletePhrase(id, user.getId());
+        int idDeleted = phraseRepository.deletePhrase(id, user.getId());
 
         if(idDeleted == 0){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Frase não encontrada"
+            );
+        }
+
+    }
+
+    public void updateNextSeen(PhraseUpdateDays dados, Authentication authentication) {
+
+        var email = authentication.getName();
+        var user = userRepository.getUserByEmail(email);
+        int updated = phraseRepository.updateNextSeen(dados.id(), nextSeen(dados.days()), user.getId());
+
+        if(updated == 0){
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
                     "Frase não encontrada"

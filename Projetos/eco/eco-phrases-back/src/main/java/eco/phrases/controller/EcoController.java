@@ -29,22 +29,6 @@ public class EcoController {
     private PhraseService phraseService;
 
 
-    @GetMapping("/usuario")
-    public ResponseEntity listUsers(){
-        var users = userRepository.findAll().stream().map(UserResponseData::new);
-        return ResponseEntity.ok(users);
-    }
-
-    @GetMapping("/frases/usuario/{id}")
-    public ResponseEntity listUserPhrases(@PathVariable Long id){
-        var phrases = phraseRepository
-                .findByUserId(id)
-                .stream()
-                .map(PhraseResponseData::new)
-                .toList();
-        return ResponseEntity.ok(phrases);
-    }
-
     @PostMapping("/frase")
     public ResponseEntity insertPhrase(@RequestBody @Valid PhraseInsertData dados, Authentication authentication){
         String email = authentication.getName();
@@ -90,6 +74,12 @@ public class EcoController {
                 .toList();
 
         return ResponseEntity.ok().body(frases);
+    }
+
+    @PutMapping("frase/revisao")
+    public ResponseEntity revisao(@RequestBody PhraseUpdateDays dados, Authentication authentication){
+        phraseService.updateNextSeen(dados, authentication);
+        return ResponseEntity.noContent().build();
     }
 
 }
