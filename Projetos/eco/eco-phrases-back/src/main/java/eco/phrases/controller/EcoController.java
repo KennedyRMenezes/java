@@ -1,9 +1,6 @@
 package eco.phrases.controller;
 
 import eco.phrases.domain.phrase.*;
-import eco.phrases.domain.user.User;
-import eco.phrases.domain.user.UserRepository;
-import eco.phrases.domain.user.UserResponseData;
 import eco.phrases.domain.user.UserResponseProfileData;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +10,10 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 public class EcoController {
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private PhraseRepository phraseRepository;
 
     @Autowired
     private PhraseService phraseService;

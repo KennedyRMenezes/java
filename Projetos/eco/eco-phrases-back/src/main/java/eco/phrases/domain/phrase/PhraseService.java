@@ -3,19 +3,14 @@ package eco.phrases.domain.phrase;
 import eco.phrases.domain.user.User;
 import eco.phrases.domain.user.UserRepository;
 import eco.phrases.domain.user.UserResponseProfileData;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @Service
 public class PhraseService {
