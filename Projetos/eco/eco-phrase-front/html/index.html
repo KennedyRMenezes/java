@@ -1,34 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>eco</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
+
     <div class="app-container">
+
         <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="sidebar-header">eco frases</div>
+
+            <div class="sidebar-header">
+                eco frases
+            </div>
+
             <nav>
                 <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link active">🗣️ Início</a></li>
-                    <li><a href="login.html" class="nav-link">🔑 Login</a></li>
-                    <li><a href="perfil.html" class="nav-link">👤 Seu Perfil</a></li>
-                    <li><a href="minhas-frases.html" class="nav-link">💬 Minhas frases</a></li>
-                    <li><a href="cadastrar-frase.html" class="nav-link">➕ Cadastrar Frases</a></li>
+                    <li>
+                        <a href="index.html" class="nav-link active">
+                            🗣️ Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html" class="nav-link">
+                            🔑 Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="perfil.html" class="nav-link">
+                            👤 Seu Perfil
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="minhas-frases.html" class="nav-link">
+                            💬 Minhas frases
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="cadastrar-frase.html" class="nav-link">
+                            ➕ Cadastrar Frases
+                        </a>
+                    </li>
                 </ul>
             </nav>
+
         </aside>
 
         <!-- Conteúdo Principal -->
         <main class="main-content">
-            <h1>🗣️ Início</h1>
 
-            <h2>Guarde o que é importante, nós te lembramos na hora certa.</h2>
-            <p>Aqui você salva as suas frases preferidas e nós te enviamos um lembrete para você revisitá-la.</p>
+            <h2>🗣️ Eco Frases</h2>
+
+            <h3>
+                Guarde o que é importante, nós te lembramos na hora certa.
+            </h3>
+
+            <p>
+                Aqui você salva as suas frases preferidas e nós te enviamos
+                um lembrete para você revisitá-las.
+            </p>
+
+            <!-- Frases para revisão -->
+            <section id="review-section" class="review-section" style="display: none;">
+
+                <h3>Frases prontas para revisão</h3>
+                <br>
+
+                <div id="phrases-container">
+                    <!-- As frases serão inseridas pelo JavaScript -->
+                </div>
+
+            </section>
+
         </main>
+
     </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/frases.js"></script>
+    <script src="../js/index.js"></script>
+
 </body>
+
 </html>

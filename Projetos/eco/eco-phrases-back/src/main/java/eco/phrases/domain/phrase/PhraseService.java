@@ -1,5 +1,6 @@
 package eco.phrases.domain.phrase;
 
+import eco.phrases.domain.user.User;
 import eco.phrases.domain.user.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class PhraseService {
@@ -65,4 +69,17 @@ public class PhraseService {
         }
 
     }
+
+    public List<PhraseResponseData> paraRevisar(Authentication authentication) {
+
+        String email = authentication.getName();
+        User user = userRepository.getUserByEmail(email);
+        var frases = phraseRepository.findOverduePhrases(user.getId())
+                .stream()
+                .map(PhraseResponseData::new)
+                .toList();
+        return frases;
+
+    }
+    
 }

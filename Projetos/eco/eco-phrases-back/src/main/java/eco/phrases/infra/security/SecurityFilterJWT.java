@@ -26,12 +26,12 @@ public class SecurityFilterJWT extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        System.out.println("=================================");
-        System.out.println("JWT FILTER");
-        System.out.println("URI: " + request.getRequestURI());
-        System.out.println("METHOD: " + request.getMethod());
-        System.out.println("AUTH: " + request.getHeader("Authorization"));
-        System.out.println("=================================");
+//        System.out.println("=================================");
+//        System.out.println("JWT FILTER");
+//        System.out.println("URI: " + request.getRequestURI());
+//        System.out.println("METHOD: " + request.getMethod());
+//        System.out.println("AUTH: " + request.getHeader("Authorization"));
+//        System.out.println("=================================");
 
         var tokenJWT = recuperarToken(request);
 

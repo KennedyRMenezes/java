@@ -82,4 +82,10 @@ public class EcoController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("frases/para_revisar")
+    public ResponseEntity paraRevisar(Authentication authentication){
+        var frasesParaRevisar = phraseService.paraRevisar(authentication);
+        return ResponseEntity.ok().body(frasesParaRevisar);
+    }
+
 }
