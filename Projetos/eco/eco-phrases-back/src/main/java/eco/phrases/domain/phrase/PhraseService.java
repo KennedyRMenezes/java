@@ -2,6 +2,7 @@ package eco.phrases.domain.phrase;
 
 import eco.phrases.domain.user.User;
 import eco.phrases.domain.user.UserRepository;
+import eco.phrases.domain.user.UserResponseProfileData;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
@@ -96,4 +97,16 @@ public class PhraseService {
         return frases;
 
     }
+
+    public UserResponseProfileData perfil(String email){
+
+        User user = userRepository.findByEmail(email);
+
+        UserResponseProfileData responseProfile = new UserResponseProfileData(
+                user.getName(), user.getEmail(), user.getPhoto()
+        );
+
+        return responseProfile;
+    }
+
 }

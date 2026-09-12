@@ -38,7 +38,6 @@ public class EcoController {
 
     @DeleteMapping("/frase/{id}")
     public ResponseEntity<Void> deletePhrase(@PathVariable Long id, Authentication authentication){
-
         phraseService.deletePhrase(id, authentication);
         return ResponseEntity.noContent().build();
     }
@@ -50,15 +49,8 @@ public class EcoController {
 
     @GetMapping("/perfil")
     public ResponseEntity<UserResponseProfileData> getPerfil(@AuthenticationPrincipal String email){
-
-        User user = userRepository.findByEmail(email);
-
-        UserResponseProfileData responseProfile = new UserResponseProfileData(
-                user.getName(), user.getEmail(), user.getPhoto()
-        );
-
+        var responseProfile = phraseService.perfil(email);
         return ResponseEntity.ok().body(responseProfile);
-
     }
 
     @GetMapping("frases/minhas")
