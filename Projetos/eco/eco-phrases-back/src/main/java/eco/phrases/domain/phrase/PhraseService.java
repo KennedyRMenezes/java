@@ -81,5 +81,19 @@ public class PhraseService {
         return frases;
 
     }
-    
+
+    public List<PhraseResponseData> frasesDoUsuario(Authentication authentication){
+
+        String email = authentication.getName();
+
+        User usuario = userRepository.findByEmail(email);
+
+        var frases = phraseRepository.findByUser(usuario)
+                .stream()
+                .map(PhraseResponseData::new)
+                .toList();
+
+        return frases;
+
+    }
 }

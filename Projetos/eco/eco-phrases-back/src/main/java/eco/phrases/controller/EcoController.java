@@ -62,18 +62,9 @@ public class EcoController {
     }
 
     @GetMapping("frases/minhas")
-    public ResponseEntity minhasFrases(Authentication authentication){
-
-        String email = authentication.getName();
-
-        User usuario = userRepository.findByEmail(email);
-
-        var frases = phraseRepository.findByUser(usuario)
-                .stream()
-                .map(PhraseResponseData::new)
-                .toList();
-
-        return ResponseEntity.ok().body(frases);
+    public ResponseEntity frasesDoUsuario(Authentication authentication){
+        var frasesDoUsuario = phraseService.frasesDoUsuario(authentication);
+        return ResponseEntity.ok().body(frasesDoUsuario);
     }
 
     @PutMapping("frase/revisao")
