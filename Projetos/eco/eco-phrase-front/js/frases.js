@@ -68,6 +68,7 @@ function renderPhrases(frases) {
         const card = document.createElement('div');
 
         card.classList.add('card-phrase');
+        card.dataset.id = frase.id;
 
         card.innerHTML = `
 

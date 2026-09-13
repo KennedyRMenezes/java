@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 public interface PhraseRepository extends JpaRepository<Phrase, Long>{
 
@@ -29,4 +30,6 @@ public interface PhraseRepository extends JpaRepository<Phrase, Long>{
     List<Phrase> findOverduePhrases(Long id, LocalDateTime inicioDeAmanha);
 
     List<Phrase> findByUserOrderByNextSeenAsc(User usuario);
+
+    Optional<Phrase> findByIdAndUserId(Long id, Long id1);
 }

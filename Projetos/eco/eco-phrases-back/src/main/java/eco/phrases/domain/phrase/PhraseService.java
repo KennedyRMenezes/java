@@ -32,7 +32,7 @@ public class PhraseService {
 
         var user = userRepository.findByEmail(email);
 
-        Phrase savedPhrase = phraseRepository.save(new Phrase(null, dados.text(), dados.author(), dados.origin(), nextSeen(3), user));
+        Phrase savedPhrase = phraseRepository.save(new Phrase(null, dados.text(), dados.author(), dados.origin(), nextSeen(3), user, null));
 
         return savedPhrase;
 
@@ -46,14 +46,15 @@ public class PhraseService {
 
         var email = authentication.getName();
         var user = userRepository.getUserByEmail(email);
-        int idDeleted = phraseRepository.deletePhrase(id, user.getId());
 
-        if(idDeleted == 0){
-            throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND,
-                    "Frase não encontrada"
-            );
-        }
+        var phrase = phraseRepository
+                .findByIdAndUserId(id, user.getId())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Frase não encontrada"
+                ));
+
+        phraseRepository.delete(phrase);
 
     }
 

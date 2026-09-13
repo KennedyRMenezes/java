@@ -1,10 +1,12 @@
 package eco.phrases.domain.phrase;
 
+import eco.phrases.domain.phraseDelivery.PhraseDelivery;
 import eco.phrases.domain.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name="Phrases")
 @Table(name="phrases")
@@ -27,5 +29,8 @@ public class Phrase {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
+
+    @OneToMany(mappedBy = "phrase", cascade = CascadeType.REMOVE)
+    private List<PhraseDelivery> deliveries;
 
 }

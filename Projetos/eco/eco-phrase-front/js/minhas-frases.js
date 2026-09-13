@@ -70,11 +70,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     .getElementById('delete-modal')
                     .classList.remove('active');
 
+                //Remove card
+                const card = document.querySelector(
+                    `.card-phrase[data-id="${phraseToDelete}"]`
+                );
+
+                if (card) {
+                    setTimeout(() => {
+                        card.remove();
+                    }, 1000);
+                }
+
                 // Limpa o ID da frase
                 phraseToDelete = null;
 
-                // Recarrega as frases
-                await carregarFrases();
 
             } catch (error) {
 
