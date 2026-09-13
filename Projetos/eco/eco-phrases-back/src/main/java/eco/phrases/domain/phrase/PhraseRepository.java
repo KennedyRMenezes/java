@@ -29,4 +29,6 @@ public interface PhraseRepository extends JpaRepository<Phrase, Long>{
 
     @Query("SELECT p FROM Phrases p WHERE p.user.id = :id AND p.nextSeen < CURRENT_DATE ")
     List<Phrase> findOverduePhrases(Long id);
+
+    List<Phrase> findByUserOrderByNextSeenAsc(User usuario);
 }

@@ -92,7 +92,7 @@ public class PhraseService {
 
         User usuario = userRepository.findByEmail(email);
 
-        var frases = phraseRepository.findByUser(usuario)
+        var frases = phraseRepository.findByUserOrderByNextSeenAsc(usuario)
                 .stream()
                 .map(PhraseResponseData::new)
                 .toList();
