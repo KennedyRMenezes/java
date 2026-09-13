@@ -12,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -78,7 +79,8 @@ public class PhraseService {
 
         String email = authentication.getName();
         User user = userRepository.getUserByEmail(email);
-        var frases = phraseRepository.findOverduePhrases(user.getId())
+        LocalDateTime inicioDeAmanha = LocalDate.now().plusDays(1).atStartOfDay();
+        var frases = phraseRepository.findOverduePhrases(user.getId(), inicioDeAmanha)
                 .stream()
                 .map(PhraseResponseData::new)
                 .toList();

@@ -5,10 +5,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 
 public interface PhraseRepository extends JpaRepository<Phrase, Long>{
@@ -27,8 +25,8 @@ public interface PhraseRepository extends JpaRepository<Phrase, Long>{
     @Query("UPDATE Phrases p SET p.nextSeen = :nextSeen WHERE p.id = :phraseId AND p.user.id = :userId")
     int updateNextSeen(Long phraseId, LocalDateTime nextSeen, Long userId);
 
-    @Query("SELECT p FROM Phrases p WHERE p.user.id = :id AND p.nextSeen <= CURRENT_DATE ")
-    List<Phrase> findOverduePhrases(Long id);
+    @Query("SELECT p FROM Phrases p WHERE p.user.id = :id AND p.nextSeen < :inicioDeAmanha")
+    List<Phrase> findOverduePhrases(Long id, LocalDateTime inicioDeAmanha);
 
     List<Phrase> findByUserOrderByNextSeenAsc(User usuario);
 }
