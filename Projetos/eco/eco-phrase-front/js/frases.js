@@ -144,6 +144,13 @@ function renderPhrases(frases) {
                             7 dias
                         </button>
 
+                        <button
+                            class="btn-interval"
+                            data-id="${frase.id}"
+                            data-days="15">
+                            15 dias
+                        </button>
+
                     </div>
 
                 </div>
