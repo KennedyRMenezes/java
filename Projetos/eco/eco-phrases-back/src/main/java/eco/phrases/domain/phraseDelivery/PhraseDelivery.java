@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table
+@Entity(name="PhraseDelivery")
+@Table(name="phrase_history")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
