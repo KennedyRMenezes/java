@@ -27,7 +27,7 @@ public interface PhraseRepository extends JpaRepository<Phrase, Long>{
     @Query("UPDATE Phrases p SET p.nextSeen = :nextSeen WHERE p.id = :phraseId AND p.user.id = :userId")
     int updateNextSeen(Long phraseId, LocalDateTime nextSeen, Long userId);
 
-    @Query("SELECT p FROM Phrases p WHERE p.user.id = :id AND p.nextSeen < CURRENT_DATE ")
+    @Query("SELECT p FROM Phrases p WHERE p.user.id = :id AND p.nextSeen <= CURRENT_DATE ")
     List<Phrase> findOverduePhrases(Long id);
 
     List<Phrase> findByUserOrderByNextSeenAsc(User usuario);
