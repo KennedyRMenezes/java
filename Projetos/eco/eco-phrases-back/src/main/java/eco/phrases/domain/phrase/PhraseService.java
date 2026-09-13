@@ -1,8 +1,11 @@
 package eco.phrases.domain.phrase;
 
+import eco.phrases.domain.phraseDelivery.PhraseDelivery;
+import eco.phrases.domain.phraseDelivery.PhraseDeliveryRepository;
 import eco.phrases.domain.user.User;
 import eco.phrases.domain.user.UserRepository;
 import eco.phrases.domain.user.UserResponseProfileData;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -17,6 +20,9 @@ public class PhraseService {
 
     @Autowired
     private PhraseRepository phraseRepository;
+
+    @Autowired
+    private PhraseDeliveryRepository phraseDeliveryRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -35,7 +41,6 @@ public class PhraseService {
         return LocalDateTime.now().plusDays(interval);
     }
 
-
     public void deletePhrase(Long id, Authentication authentication) {
 
         var email = authentication.getName();
@@ -51,11 +56,14 @@ public class PhraseService {
 
     }
 
+    @Transactional
     public void updateNextSeen(PhraseUpdateDays dados, Authentication authentication) {
 
         var email = authentication.getName();
         var user = userRepository.getUserByEmail(email);
         int updated = phraseRepository.updateNextSeen(dados.id(), nextSeen(dados.days()), user.getId());
+        Phrase p = phraseRepository.getReferenceById(dados.id());
+        var updated_history = phraseDeliveryRepository.save(new PhraseDelivery(null, LocalDateTime.now(), p));
 
         if(updated == 0){
             throw new ResponseStatusException(
@@ -103,5 +111,7 @@ public class PhraseService {
 
         return responseProfile;
     }
+
+
 
 }
