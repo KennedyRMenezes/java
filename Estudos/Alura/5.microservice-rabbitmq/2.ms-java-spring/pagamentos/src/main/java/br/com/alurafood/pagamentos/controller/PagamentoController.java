@@ -47,7 +47,7 @@ public class PagamentoController {
         return ResponseEntity.ok(atualizado);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public ResponseEntity<PagamentoDTO> remover(@PathVariable @NotNull Long id){
         pagamentoService.excluirPagamento(id);
         return ResponseEntity.noContent().build();
